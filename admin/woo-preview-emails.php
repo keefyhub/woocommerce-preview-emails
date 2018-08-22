@@ -16,14 +16,17 @@ function ss_preview_woo_emails()
             'email-downloads.php',
             'plain'
         ];
+
         $list = array_diff($files, $exclude);
         $woocommerce_orders = new WP_Query([
             'post_type' => 'shop_order',
-            'posts_per_page' => -1,
+            'posts_per_page' => 10,
             'order' => 'ASC',
-            'post_status' => ['wc-processing', 'wc-pending']
+            'post_status' => ['wc-completed', 'wc-processing', 'wc-pending']
         ]);
+
         $order_drop_down_array = [];
+
         if ($woocommerce_orders->have_posts()) {
             while ($woocommerce_orders->have_posts()) {
                 $woocommerce_orders->the_post();
@@ -62,13 +65,16 @@ function ss_preview_woo_emails()
         $email_heading = return_wooc_email_heading($emails->emails, $_GET['file'], $order_number);
         $user_id = (int)$order->post->post_author;
         $user_details = get_user_by('id', $user_id);
+
         if (in_array($_GET['file'], array('email-customer-details.php', 'email-order-details.php'))) {
             wc_get_template('emails/email-header.php', array(
                 'order' => $order,
                 'email_heading' => $email_heading
             ));
         }
+
         do_action('woocommerce_email_before_order_table', $order, false, false);
+
         wc_get_template('emails/' . $_GET['file'], [
             'order' => $order,
             'email_heading' => $email_heading,
