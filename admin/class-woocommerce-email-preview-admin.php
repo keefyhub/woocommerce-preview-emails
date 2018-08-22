@@ -99,7 +99,7 @@ class Woocommerce_Email_Preview_Admin
          * class.
          */
 
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/woocommerce-email-preview-admin.js', ['jquery'], $this->version, false);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/woocommerce-email-preview-admin.js', ['jquery'], $this->version, true);
     }
 
 
