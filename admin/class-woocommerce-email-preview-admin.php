@@ -18,7 +18,7 @@
  *
  * @package    Woocommerce_Email_Preview
  * @subpackage Woocommerce_Email_Preview/admin
- * @author     Keith Light <keith.light@strawberrysoup.co.uk>
+ * @author     Keith Light | Strawberrysoup <keith.light@strawberrysoup.co.uk>
  */
 class Woocommerce_Email_Preview_Admin
 {

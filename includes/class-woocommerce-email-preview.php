@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Woocommerce_Email_Preview
  * @subpackage Woocommerce_Email_Preview/includes
- * @author     Keith Light <keith.light@strawberrysoup.co.uk>
+ * @author     Keith Light | Strawberrysoup <keith.light@strawberrysoup.co.uk>
  */
 class Woocommerce_Email_Preview
 {
@@ -78,7 +78,6 @@ class Woocommerce_Email_Preview
         $this->load_dependencies();
         $this->set_locale();
         $this->define_admin_hooks();
-        $this->define_public_hooks();
     }
 
     /**
@@ -116,12 +115,6 @@ class Woocommerce_Email_Preview
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-woocommerce-email-preview-admin.php';
 
-        /**
-         * The class responsible for defining all actions that occur in the public-facing
-         * side of the site.
-         */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-woocommerce-email-preview-public.php';
-
         $this->loader = new Woocommerce_Email_Preview_Loader();
     }
 
@@ -154,21 +147,6 @@ class Woocommerce_Email_Preview
 
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-    }
-
-    /**
-     * Register all of the hooks related to the public-facing functionality
-     * of the plugin.
-     *
-     * @since    1.0.0
-     * @access   private
-     */
-    private function define_public_hooks()
-    {
-        $plugin_public = new Woocommerce_Email_Preview_Public($this->get_plugin_name(), $this->get_version());
-
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
     }
 
     /**

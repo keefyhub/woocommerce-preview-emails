@@ -14,6 +14,7 @@ function ss_preview_woo_emails()
             'email-addresses.php',
             'email-customer-details.php',
             'email-downloads.php',
+            'email-order-details.php',
             'plain'
         ];
 
@@ -22,7 +23,7 @@ function ss_preview_woo_emails()
             'post_type' => 'shop_order',
             'posts_per_page' => 10,
             'order' => 'ASC',
-            'post_status' => ['wc-completed', 'wc-processing', 'wc-pending']
+            'post_status' => ['wc-completed']
         ]);
 
         $order_drop_down_array = [];
@@ -62,7 +63,7 @@ function ss_preview_woo_emails()
         $order_number = isset($_GET['order']) ? $_GET['order'] : key($order_drop_down_array);
         $order = new WC_Order($order_number);
         $emails = new WC_Emails();
-        $email_heading = return_wooc_email_heading($emails->emails, $_GET['file'], $order_number);
+        $email_heading = get_woocommerce_email_heading($emails->emails, $_GET['file'], $order_number);
         $user_id = (int)$order->post->post_author;
         $user_details = get_user_by('id', $user_id);
 
@@ -111,16 +112,25 @@ function add_preview_email_links($settings)
 
 add_action('wp_ajax_previewemail', 'ss_preview_woo_emails');
 
-function return_wooc_email_heading($emails_array, $template_name, $order_number)
+function get_woocommerce_email_heading($emails_array, $template_name, $order_number)
 {
     if (!$emails_array || !$template_name) {
         return false;
     }
     $template_name = str_replace('.php', '', str_replace('-', '_', $template_name));
-    foreach ($emails_array as $email) {
-        if ($email->id == $template_name) {
-            return str_replace('{order_number}', '#' . $order_number, $email->settings['heading']);
+    $template_name = str_replace('admin_', '', $template_name);
+
+    foreach ($emails_array as $email_class => $email) {
+        if ($email->id == $template_name && !empty($email->settings['heading'])) {
+            $message = str_replace('{order_number}', '#' . $order_number, $email->settings['heading']);
+            $message = str_replace('{site_title}', get_bloginfo('name'), $message);
+
+            return $message;
+        } elseif ($email->id == $template_name) {
+            $email_class = new $email_class();
+            return str_replace('{order_number}', '#' . $order_number, $email_class->get_default_heading());
         }
     }
+
     return false;
 }
