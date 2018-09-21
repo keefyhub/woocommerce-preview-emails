@@ -78,7 +78,6 @@ class Woocommerce_Email_Preview
         $this->load_dependencies();
         $this->set_locale();
         $this->define_admin_hooks();
-        $this->define_public_hooks();
     }
 
     /**
@@ -89,7 +88,6 @@ class Woocommerce_Email_Preview
      * - Woocommerce_Email_Preview_Loader. Orchestrates the hooks of the plugin.
      * - Woocommerce_Email_Preview_i18n. Defines internationalization functionality.
      * - Woocommerce_Email_Preview_Admin. Defines all hooks for the admin area.
-     * - Woocommerce_Email_Preview_Public. Defines all hooks for the public side of the site.
      *
      * Create an instance of the loader which will be used to register the hooks
      * with WordPress.
@@ -115,12 +113,6 @@ class Woocommerce_Email_Preview
          * The class responsible for defining all actions that occur in the admin area.
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-woocommerce-email-preview-admin.php';
-
-        /**
-         * The class responsible for defining all actions that occur in the public-facing
-         * side of the site.
-         */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-woocommerce-email-preview-public.php';
 
         $this->loader = new Woocommerce_Email_Preview_Loader();
     }
@@ -154,21 +146,6 @@ class Woocommerce_Email_Preview
 
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-    }
-
-    /**
-     * Register all of the hooks related to the public-facing functionality
-     * of the plugin.
-     *
-     * @since    1.0.1
-     * @access   private
-     */
-    private function define_public_hooks()
-    {
-        $plugin_public = new Woocommerce_Email_Preview_Public($this->get_plugin_name(), $this->get_version());
-
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
-        $this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
     }
 
     /**
