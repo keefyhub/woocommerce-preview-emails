@@ -1,0 +1,37 @@
+{
+	"name": "Woocommerce email preview",
+	"version": "1.0. 0",
+	"download_url": "https://github.com/keefyhub/woocommerce-preview-emails/archive/master.zip",
+
+	"homepage": "https://github.com/keefyhub/",
+	"requires": "4",
+	"tested": "4.9.8",
+	"last_updated": "2017-01-01 16:17:00",
+	"upgrade_notice": "Here's why you should upgrade...",
+
+	"author": "Keith Light | Strawberrysoup",
+	"author_homepage": "https://www.strawberrysoup.co.uk/",
+
+	"sections": {
+		"description": "(Required) Plugin description. Basic HTML can be used in all sections.",
+		"installation": "(Recommended) Installation instructions.",
+		"changelog": "(Recommended) Changelog. <p>This section will be displayed by default when the user clicks 'View version x.y.z details'.</p>",
+		"custom_section": "This is a custom section labeled 'Custom Section'."
+	},
+	
+	"icons" : {
+		"1x" : "http://w-shadow.com/files/external-update-example/assets/icon-128x128.png",
+		"2x" : "http://w-shadow.com/files/external-update-example/assets/icon-256x256.png"
+    },
+
+	"banners": {
+		"low": "http://w-shadow.com/files/external-update-example/assets/banner-772x250.png",
+		"high": "http://w-shadow.com/files/external-update-example/assets/banner-1544x500.png"
+	},
+
+	"rating": 90,
+	"num_ratings": 123,
+
+	"downloaded": 1234,
+	"active_installs": 12345
+}
