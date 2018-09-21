@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://www.strawberrysoup.co.uk
- * @since             1.0.1
+ * @since             1.0.2
  * @package           Woocommerce_Email_Preview
  *
  * @wordpress-plugin
  * Plugin Name:       Woocommerce Email Preview
  * Plugin URI:        https://www.strawberrysoup.co.uk
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Keith Light | Strawberrysoup
  * Author URI:        https://www.strawberrysoup.co.uk
  * License:           GPL-2.0+
@@ -32,10 +32,10 @@ if (!defined('WPINC')) {
 
 /**
  * Currently plugin version.
- * Start at version 1.0.1 and use SemVer - https://semver.org
+ * Start at version 1.0.2 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('PLUGIN_NAME_VERSION', '1.0.1');
+define('PLUGIN_NAME_VERSION', '1.0.2');
 
 /**
  * The code that runs during plugin activation.
@@ -73,7 +73,7 @@ require plugin_dir_path(__FILE__) . 'includes/class-woocommerce-email-preview.ph
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.1
+ * @since    1.0.2
  */
 function run_woocommerce_email_preview()
 {
