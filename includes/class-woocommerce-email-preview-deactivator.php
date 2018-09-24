@@ -4,7 +4,7 @@
  * Fired during plugin deactivation
  *
  * @link       https://www.strawberrysoup.co.uk
- * @since      1.0.2
+ * @since      1.0.3
  *
  * @package    Woocommerce_Email_Preview
  * @subpackage Woocommerce_Email_Preview/includes
@@ -15,7 +15,7 @@
  *
  * This class defines all code necessary to run during the plugin's deactivation.
  *
- * @since      1.0.2
+ * @since      1.0.3
  * @package    Woocommerce_Email_Preview
  * @subpackage Woocommerce_Email_Preview/includes
  * @author     Keith Light <keith.light@strawberrysoup.co.uk>
@@ -27,7 +27,7 @@ class Woocommerce_Email_Preview_Deactivator
      *
      * Long Description.
      *
-     * @since    1.0.2
+     * @since    1.0.3
      */
     public static function deactivate()
     {

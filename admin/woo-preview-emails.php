@@ -121,14 +121,12 @@ function get_woocommerce_email_heading($emails_array, $template_name, $order_num
     $template_name = str_replace('admin_', '', $template_name);
 
     foreach ($emails_array as $email_class => $email) {
-        if ($email->id == $template_name && !empty($email->settings['heading'])) {
-            $message = str_replace('{order_number}', '#' . $order_number, $email->settings['heading']);
+        if ($email->id == $template_name) {
+            $email_class = new $email_class();
+            $message = str_replace('{order_number}', '#' . $order_number, $email_class->get_default_heading());
             $message = str_replace('{site_title}', get_bloginfo('name'), $message);
 
             return $message;
-        } elseif ($email->id == $template_name) {
-            $email_class = new $email_class();
-            return str_replace('{order_number}', '#' . $order_number, $email_class->get_default_heading());
         }
     }
 
