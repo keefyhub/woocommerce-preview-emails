@@ -64,7 +64,7 @@ function ss_preview_woo_emails()
         $order = new WC_Order($order_number);
         $emails = new WC_Emails();
         $email_heading = get_woocommerce_email_heading($emails->emails, $_GET['file'], $order_number);
-        $user_id = (int)$order->post->post_author;
+        $user_id = !empty($order->get_customer_id()) ? $order->get_customer_id() : $order->post->post_author;
         $user_details = get_user_by('id', $user_id);
 
         if (in_array($_GET['file'], array('email-customer-details.php', 'email-order-details.php'))) {

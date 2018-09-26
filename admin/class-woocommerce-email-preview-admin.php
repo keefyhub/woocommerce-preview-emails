@@ -52,7 +52,7 @@ class Woocommerce_Email_Preview_Admin
         $this->plugin_name = $plugin_name;
         $this->version = $version;
 
-        add_action('init', [$this , 'ss_woocommerce_load_email_preview']);
+        add_action('init', [$this, 'ss_woocommerce_load_email_preview']);
         add_action('woocommerce_email_header', [$this, 'ss_woocommerce_email_header'], 10, 2);
         add_action('woocommerce_email_before_order_table', [$this, 'ss_woocommerce_email_header'], 10, 2);
         add_action('woocommerce_email_footer', [$this, 'ss_woocommerce_email_footer'], 10, 2);
@@ -99,15 +99,14 @@ class Woocommerce_Email_Preview_Admin
          * class.
          */
 
-        wp_enqueue_script('jquery');
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/woocommerce-email-preview-admin.js', ['jquery'], $this->version, true);
     }
 
 
     public function ss_woocommerce_load_email_preview()
     {
-        $preview = plugin_dir_path(__FILE__)  . 'woo-preview-emails.php';
-        
+        $preview = plugin_dir_path(__FILE__) . 'woo-preview-emails.php';
+
         if (file_exists($preview)) {
             require $preview;
         }
@@ -119,6 +118,7 @@ class Woocommerce_Email_Preview_Admin
     {
         $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
         if (strpos($url, 'admin-ajax.php') !== false):
+            wp_print_scripts();
             ?>
             <style>
                 <?php wc_get_template( 'emails/email-styles.php'); ?>

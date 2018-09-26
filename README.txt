@@ -12,6 +12,10 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
+= 1.0.5 =
+* Fix error with jquery include
+* Get user from order if available, if not fallback to post author
+
 = 1.0.4 =
 * Add woo-includes functions
 * Amend version numbers
