@@ -12,6 +12,9 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
+= 1.0.8 =
+* Fix path name error for admin js and css
+
 = 1.0.7 =
 * Rename plugin
 

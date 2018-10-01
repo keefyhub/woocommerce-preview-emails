@@ -105,7 +105,7 @@ class Woocommerce_Email_Preview_Admin
 
     public function ss_woocommerce_load_email_preview()
     {
-        $preview = plugin_dir_path(__FILE__) . 'woo-preview-emails.php';
+        $preview = plugin_dir_path(__FILE__) . 'woocommerce-preview-emails.php';
 
         if (file_exists($preview)) {
             require $preview;
