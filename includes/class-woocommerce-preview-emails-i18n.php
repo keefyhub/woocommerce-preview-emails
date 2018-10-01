@@ -34,7 +34,7 @@ class Woocommerce_Email_Preview_i18n
     public function load_plugin_textdomain()
     {
         load_plugin_textdomain(
-            'woocommerce-email-preview',
+            'woocommerce-preview-emails',
             false,
             dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
         );

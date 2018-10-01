@@ -13,14 +13,14 @@
  * @package           Woocommerce_Email_Preview
  *
  * @wordpress-plugin
- * Plugin Name:       Woocommerce Email Preview
+ * Plugin Name:       Woocommerce Preview Emails
  * Description:       Allows previews for Woocommerce email templates.
  * Version:           1.0.6
  * Author:            Keith Light | Strawberrysoup
  * Author URI:        https://www.strawberrysoup.co.uk
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       woocommerce-email-preview
+ * Text Domain:       woocommerce-preview-emails
  * Domain Path:       /languages
  * WC requires at least: 3.0.0
  * WC tested up to: 3.4.5
@@ -36,7 +36,7 @@ if (!function_exists('woothemes_queue_update')) {
     require_once(dirname(__FILE__) . '/woo-includes/woo-functions.php');
 }
 
-if (!is_woocommerce_active()) {
+if (is_woocommerce_active()) {
     add_action('admin_notices', function () {
         $plugin_data = get_plugin_data(__FILE__);
         $plugin_name = $plugin_data['Name'];
@@ -56,21 +56,21 @@ define('WOOCOMMERCE_EMAIL_PREVIEW_VERSION', '1.0.6');
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-woocommerce-email-preview-activator.php
+ * This action is documented in includes/class-woocommerce-preview-emails-activator.php
  */
 function activate_woocommerce_email_preview()
 {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-woocommerce-email-preview-activator.php';
+    require_once plugin_dir_path(__FILE__) . 'includes/class-woocommerce-preview-emails-activator.php';
     Woocommerce_Email_Preview_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-woocommerce-email-preview-deactivator.php
+ * This action is documented in includes/class-woocommerce-preview-emails-deactivator.php
  */
 function deactivate_woocommerce_email_preview()
 {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-woocommerce-email-preview-deactivator.php';
+    require_once plugin_dir_path(__FILE__) . 'includes/class-woocommerce-preview-emails-deactivator.php';
     Woocommerce_Email_Preview_Deactivator::deactivate();
 }
 
@@ -81,7 +81,7 @@ register_deactivation_hook(__FILE__, 'deactivate_woocommerce_email_preview');
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path(__FILE__) . 'includes/class-woocommerce-email-preview.php';
+require plugin_dir_path(__FILE__) . 'includes/class-woocommerce-preview-emails.php';
 
 /**
  * Begins execution of the plugin.
@@ -102,9 +102,9 @@ run_woocommerce_email_preview();
 
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/keefyhub/woocommerce-email-preview/',
+    'https://github.com/keefyhub/woocommerce-preview-emails/',
     __FILE__,
-    'woocommerce-email-preview'
+    'woocommerce-preview-emails'
 );
 
 $myUpdateChecker->setBranch('master');

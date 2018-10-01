@@ -73,7 +73,7 @@ class Woocommerce_Email_Preview
         } else {
             $this->version = '1.0.0';
         }
-        $this->plugin_name = 'woocommerce-email-preview';
+        $this->plugin_name = 'woocommerce-preview-emails';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -101,18 +101,18 @@ class Woocommerce_Email_Preview
          * The class responsible for orchestrating the actions and filters of the
          * core plugin.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-woocommerce-email-preview-loader.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-woocommerce-preview-emails-loader.php';
 
         /**
          * The class responsible for defining internationalization functionality
          * of the plugin.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-woocommerce-email-preview-i18n.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-woocommerce-preview-emails-i18n.php';
 
         /**
          * The class responsible for defining all actions that occur in the admin area.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-woocommerce-email-preview-admin.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-woocommerce-preview-emails-admin.php';
 
         $this->loader = new Woocommerce_Email_Preview_Loader();
     }

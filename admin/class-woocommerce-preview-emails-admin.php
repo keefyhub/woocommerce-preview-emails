@@ -77,7 +77,7 @@ class Woocommerce_Email_Preview_Admin
          * class.
          */
 
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/woocommerce-email-preview-admin.css', [], $this->version, 'all');
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/woocommerce-preview-emails-admin.css', [], $this->version, 'all');
     }
 
     /**
@@ -99,7 +99,7 @@ class Woocommerce_Email_Preview_Admin
          * class.
          */
 
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/woocommerce-email-preview-admin.js', ['jquery'], $this->version, true);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/woocommerce-preview-emails-admin.js', ['jquery'], $this->version, true);
     }
 
 
