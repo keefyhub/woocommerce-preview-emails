@@ -12,6 +12,10 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
+= 1.0.6 =
+* Add WC required & WC tested
+* Amend `is_woocommerce_active()` function to return message
+
 = 1.0.5 =
 * Fix error with jquery include
 * Get user from order if available, if not fallback to post author
