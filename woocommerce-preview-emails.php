@@ -36,18 +36,6 @@ if (!function_exists('woothemes_queue_update')) {
     require_once(dirname(__FILE__) . '/woo-includes/woo-functions.php');
 }
 
-if (is_woocommerce_active()) {
-    add_action('admin_notices', function () {
-        $plugin_data = get_plugin_data(__FILE__);
-        $plugin_name = $plugin_data['Name'];
-        echo '<div class="error"><p>';
-        esc_html_e(sprintf('%s is inactive because WooCommerce is not installed.', $plugin_name));
-        echo '</p></div>';
-    });
-
-    return;
-}
-
 /**
  * Current plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
