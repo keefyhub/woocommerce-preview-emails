@@ -1,7 +1,7 @@
 {
 	"name": "Woocommerce email preview",
 	"version": "1.0.6",
-	"download_url": "https://github.com/keefyhub/woocommerce-preview-emails/archive/master.zip",
+	"download_url": "https://github.com/keefyhub/woocommerce-email-preview/archive/master.zip",
 
 	"homepage": "https://github.com/keefyhub/",
 	"requires": "4",

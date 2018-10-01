@@ -102,9 +102,9 @@ run_woocommerce_email_preview();
 
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/keefyhub/woocommerce-preview-emails/',
+    'https://github.com/keefyhub/woocommerce-email-preview/',
     __FILE__,
-    'woocommerce-preview-emails'
+    'woocommerce-email-preview'
 );
 
 $myUpdateChecker->setBranch('master');
