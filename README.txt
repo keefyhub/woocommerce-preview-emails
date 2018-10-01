@@ -12,6 +12,9 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
+= 1.0.7 =
+* Rename plugin
+
 = 1.0.6 =
 * Add WC required & WC tested
 * Amend `is_woocommerce_active()` function to return message
