@@ -22,7 +22,6 @@ function ss_preview_woo_emails()
         $woocommerce_orders = new WP_Query([
             'post_type' => 'shop_order',
             'posts_per_page' => 10,
-            'order' => 'ASC',
             'post_status' => ['wc-completed']
         ]);
 
@@ -64,15 +63,8 @@ function ss_preview_woo_emails()
         $order = new WC_Order($order_number);
         $emails = new WC_Emails();
         $email_heading = get_woocommerce_email_heading($emails->emails, $_GET['file'], $order_number);
-        $user_id = !empty($order->get_customer_id()) ? $order->get_customer_id() : $order->post->post_author;
+        $user_id = !empty($order->get_customer_id()) ? (int)$order->get_customer_id() : (int)wp_get_current_user()->ID;
         $user_details = get_user_by('id', $user_id);
-
-        if (in_array($_GET['file'], array('email-customer-details.php', 'email-order-details.php'))) {
-            wc_get_template('emails/email-header.php', array(
-                'order' => $order,
-                'email_heading' => $email_heading
-            ));
-        }
 
         do_action('woocommerce_email_before_order_table', $order, false, false);
 

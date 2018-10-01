@@ -13,6 +13,11 @@ Allows previews for Woocommerce email templates
 == Changelog ==
 
 = 1.0.8 =
+* Amend sort by for orders (get newest first)
+* Amend function to get current user rather than post author as post author may no longer exist
+* Remove function for removed templates
+
+= 1.0.8 =
 * Fix path name error for admin js and css
 
 = 1.0.7 =
