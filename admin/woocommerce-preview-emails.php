@@ -1,5 +1,5 @@
 <?php
-function ss_preview_woo_emails()
+function woocommerce_preview_emails()
 {
     if (is_admin()) {
         $default_path = WC()->plugin_path() . '/templates/';
@@ -34,27 +34,30 @@ function ss_preview_woo_emails()
             }
         }
         ?>
-        <form class="template-selector" method="get" action="<?php echo site_url(); ?>/wp-admin/admin-ajax.php">
+        <form class="template-selector" method="get" action="<?= site_url(); ?>/wp-admin/admin-ajax.php">
             <div class="template-row">
-                <input id="setorder" type="hidden" name="order" value="">
-                <input type="hidden" name="action" value="previewemail">
-                <span class="choose-email">Choose your email template: </span>
+                <input type="hidden" name="action" value="woocommerce_preview_emails">
+                <span class="choose-email">Choose email template: </span>
                 <select name="file" id="email-select">
                     <?php
                     foreach ($list as $item): ?>
-                        <option value="<?php echo $item; ?>"><?php echo str_replace('.php', '', $item); ?></option>
+                        <option value="<?= $item; ?>">
+                            <?= str_replace('.php', '', $item); ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
             </div>
             <div class="order-row">
-                <span class="choose-order">Choose an order number: </span>
+                <span class="choose-order">Choose order number: </span>
                 <select id="order" name="order">
                     <?php foreach ($order_drop_down_array as $order_id => $order_name): ?>
-                        <option value="<?php echo $order_id; ?>" <?php selected(((isset($_GET['order'])) ? $_GET['order'] : key($order_drop_down_array)), $order_id); ?>><?php echo $order_name; ?></option>
+                        <option value="<?= $order_id; ?>" <?php selected(((isset($_GET['order'])) ? $_GET['order'] : key($order_drop_down_array)), $order_id); ?>>
+                            <?= $order_name; ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
             </div>
-            <input type="submit" value="Go">
+            <input type="submit" value="View">
         </form>
         <?php
         global $order, $billing_email;
@@ -83,7 +86,7 @@ function ss_preview_woo_emails()
     wp_die();
 }
 
-add_filter('woocommerce_email_settings', 'add_preview_email_links');
+add_action('wp_ajax_woocommerce_preview_emails', 'woocommerce_preview_emails');
 
 function add_preview_email_links($settings)
 {
@@ -91,9 +94,9 @@ function add_preview_email_links($settings)
     foreach ($settings as $section) {
         if (isset($section['id']) && 'email_recipient_options' == $section['id'] && isset($section['type']) && 'sectionend' == $section['type']) {
             $updated_settings[] = [
-                'title' => __('Preview Email Templates', 'previewemail'),
+                'title' => __('Preview Email Templates', 'woocommerce_preview_emails'),
                 'type' => 'title',
-                'desc' => __('<a href="' . site_url() . '/wp-admin/admin-ajax.php?action=previewemail&file=customer-new-account.php" target="_blank">Preview email templates</a>.', 'previewemail'),
+                'desc' => __('<a href="' . site_url() . '/wp-admin/admin-ajax.php?action=woocommerce_preview_emails&file=customer-new-account.php" target="_blank">Preview email templates</a>.', 'woocommerce_preview_emails'),
                 'id' => 'email_preview_links'
             ];
         }
@@ -102,7 +105,7 @@ function add_preview_email_links($settings)
     return $updated_settings;
 }
 
-add_action('wp_ajax_previewemail', 'ss_preview_woo_emails');
+add_filter('woocommerce_email_settings', 'add_preview_email_links');
 
 function get_woocommerce_email_heading($emails_array, $template_name, $order_number)
 {

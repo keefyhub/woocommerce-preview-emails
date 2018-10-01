@@ -12,7 +12,12 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
-= 1.0.8 =
+= 1.0.10 =
+* Amend function name
+* Amend actions to be inline with function
+* Remove `setorder` field
+
+= 1.0.9 =
 * Amend sort by for orders (get newest first)
 * Amend function to get current user rather than post author as post author may no longer exist
 * Remove function for removed templates
