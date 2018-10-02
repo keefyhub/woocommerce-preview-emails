@@ -12,6 +12,9 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
+= 1.0.11 =
+* Fix `wc_doing_it_wrong` error when getting customer note
+
 = 1.0.10 =
 * Amend function name
 * Amend actions to be inline with function

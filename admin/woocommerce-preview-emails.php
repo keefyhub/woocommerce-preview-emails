@@ -79,7 +79,7 @@ function woocommerce_preview_emails()
             'email' => $user_details->user_email,
             'user_login' => $user_details->user_login,
             'blogname' => get_bloginfo('name'),
-            'customer_note' => $order->customer_note,
+            'customer_note' => $order->get_customer_note(),
             'partial_refund' => ''
         ]);
     }

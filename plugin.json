@@ -1,6 +1,6 @@
 {
 	"name": "Woocommerce preview emails",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"download_url": "https://github.com/keefyhub/woocommerce-preview-emails/archive/master.zip",
 
 	"homepage": "https://github.com/keefyhub/",
@@ -18,7 +18,7 @@
 		"changelog": "(Recommended) Changelog. <p>This section will be displayed by default when the user clicks 'View version x.y.z details'.</p>",
 		"custom_section": "This is a custom section labeled 'Custom Section'."
 	},
-	
+
 	"icons" : {
 		"1x" : "http://w-shadow.com/files/external-update-example/assets/icon-128x128.png",
 		"2x" : "http://w-shadow.com/files/external-update-example/assets/icon-256x256.png"
