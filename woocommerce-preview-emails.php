@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Woocommerce Preview Emails
  * Description:       Allows previews for Woocommerce email templates.
- * Version:           1.0.11
+ * Version:           1.0.12
  * Author:            Keith Light | Strawberrysoup
  * Author URI:        https://www.strawberrysoup.co.uk
  * License:           GPL-2.0+
@@ -40,7 +40,7 @@ if (!function_exists('woothemes_queue_update')) {
  * Current plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define('WOOCOMMERCE_EMAIL_PREVIEW_VERSION', '1.0.11');
+define('WOOCOMMERCE_EMAIL_PREVIEW_VERSION', '1.0.12');
 
 /**
  * The code that runs during plugin activation.
