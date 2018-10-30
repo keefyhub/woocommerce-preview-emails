@@ -12,6 +12,9 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
+= 1.0.13 =
+* Amend JS/CSS to be inline with Woocommerce 3.5.0
+
 = 1.0.12 =
 * Amend JS and CSS classes to match plugin naming
 

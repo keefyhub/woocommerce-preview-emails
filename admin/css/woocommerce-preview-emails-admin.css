@@ -1,3 +1,4 @@
-.wcpe-u-hidden {
+.wcpe-u-hidden,
+#email_template_options-description {
     display: none;
 }
