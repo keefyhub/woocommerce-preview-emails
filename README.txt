@@ -12,6 +12,10 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
+= 1.0.14 =
+* Amend woo-functions and add version check
+* Use version check to change email header
+
 = 1.0.13 =
 * Amend JS/CSS to be inline with Woocommerce 3.5.0
 
