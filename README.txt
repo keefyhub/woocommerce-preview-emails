@@ -12,6 +12,9 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
+= 1.0.15 =
+* Amend function to return correct header
+
 = 1.0.14 =
 * Amend woo-functions and add version check
 * Use version check to change email header

@@ -121,9 +121,11 @@ function get_woocommerce_email_heading($emails_array, $template_name, $order_num
 
             // `{order_number}` was replaced by `#{order_number}` in version 3.5 so no need to add the `#`
             if (wcpe_woocommerce_version_check()) {
-                $message = str_replace('{order_number}', $order_number, $email_class->get_default_heading());
+                $heading = $email_class->get_option('heading', $email_class->get_default_heading());
+                $message = str_replace('{order_number}', $order_number, $heading);
             } else {
-                $message = str_replace('{order_number}', '#' . $order_number, $email_class->get_default_heading());
+                $heading = $email_class->get_option('heading', $email_class->get_default_heading());
+                $message = str_replace('{order_number}', '#' . $order_number, $heading);
             }
 
             $message = str_replace('{site_title}', get_bloginfo('name'), $message);
