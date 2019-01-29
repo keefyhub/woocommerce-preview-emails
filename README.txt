@@ -12,6 +12,9 @@ Allows previews for Woocommerce email templates
 
 == Changelog ==
 
+= 1.0.16 =
+* Update `plugin update checker`
+
 = 1.0.15 =
 * Amend function to return correct header
 
