@@ -1,16 +1,20 @@
 === Plugin Name ===
 Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://www.strawberrysoup.co.uk
-Tags: comments, spam
+Donate link: https://github.com/keefyhub
+Tags: woocommerce, preview emails
 Requires at least: 4.0
-Tested up to: 4.9.8
-Stable tag: 4.3
+Tested up to: 6.3.2
+Stable tag: 6.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Allows previews for Woocommerce email templates
 
 == Changelog ==
+= 1.0.17 =
+* Declare compatibility with custom order tables for WooCommerce.
+* Update JS errors
+* add additional data to emails
 
 = 1.0.16 =
 * Update `plugin update checker`

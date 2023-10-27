@@ -5,7 +5,7 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       https://www.strawberrysoup.co.uk
+ * @link       https://github.com/keefyhub
  * @since      1.0.0
  *
  * @package    Woocommerce_Email_Preview

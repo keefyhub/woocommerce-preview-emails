@@ -8,22 +8,22 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://www.strawberrysoup.co.uk
+ * @link              https://github.com/keefyhub
  * @since             1.0.0
  * @package           Woocommerce_Email_Preview
  *
  * @wordpress-plugin
  * Plugin Name:       Woocommerce Preview Emails
  * Description:       Allows previews for Woocommerce email templates.
- * Version:           1.0.16
- * Author:            Keith Light | Strawberrysoup
- * Author URI:        https://www.strawberrysoup.co.uk
+ * Version:           1.0.17
+ * Author:            Keith Light
+ * Author URI:        https://github.com/keefyhub
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       woocommerce-preview-emails
  * Domain Path:       /languages
  * WC requires at least: 3.0.0
- * WC tested up to: 3.5.1
+ * WC tested up to: 8.2.1
  */
 
 // If this file is called directly, abort.
@@ -33,6 +33,13 @@ if (!defined('WPINC')) {
 
 // Required functions
 require_once(dirname(__FILE__) . '/woo-includes/woo-functions.php');
+
+// Declare compatibility with custom order tables for WooCommerce.
+add_action('before_woocommerce_init', function () {
+    if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
+        \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
+    }
+});
 
 /**
  * Current plugin version.

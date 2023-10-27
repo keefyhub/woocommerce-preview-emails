@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://www.strawberrysoup.co.uk
+ * @link       https://github.com/keefyhub
  * @since      1.0.0
  *
  * @package    Woocommerce_Email_Preview
@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Woocommerce_Email_Preview
  * @subpackage Woocommerce_Email_Preview/includes
- * @author     Keith Light <keith.light@strawberrysoup.co.uk>
+ * @author     Keith Light
  */
 class Woocommerce_Email_Preview
 {

@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.strawberrysoup.co.uk
+ * @link       https://github.com/keefyhub
  * @since      1.0.0
  *
  * @package    Woocommerce_Email_Preview
@@ -18,7 +18,7 @@
  *
  * @package    Woocommerce_Email_Preview
  * @subpackage Woocommerce_Email_Preview/admin
- * @author     Keith Light | Strawberrysoup <keith.light@strawberrysoup.co.uk>
+ * @author     Keith Light
  */
 class Woocommerce_Email_Preview_Admin
 {
@@ -179,10 +179,10 @@ class Woocommerce_Email_Preview_Admin
                     return vars;
                 }
 
-                var order = getUrlVars()["order"];
-                var file = getUrlVars()["file"];
-                jQuery('form input#order').val(decodeURI(order));
-                jQuery('select#email-select').val(decodeURI(file));
+                const order = getUrlVars()["order"];
+                const file = getUrlVars()["file"];
+                document.querySelector('select#email-select').value = decodeURI(file);
+                document.querySelector('select#order').value = decodeURI(order);
             </script>
         <?php endif;
     }

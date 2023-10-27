@@ -15,32 +15,27 @@ function woocommerce_preview_emails()
             'email-customer-details.php',
             'email-downloads.php',
             'email-order-details.php',
+            'email-mobile-messaging.php',
             'plain'
         ];
 
         $list = array_diff($files, $exclude);
-        $woocommerce_orders = new WP_Query([
-            'post_type' => 'shop_order',
-            'posts_per_page' => 10,
-            'post_status' => ['wc-completed']
-        ]);
-
         $order_drop_down_array = [];
+        $orders = wc_get_orders(array('numberposts' => -1));
 
-        if ($woocommerce_orders->have_posts()) {
-            while ($woocommerce_orders->have_posts()) {
-                $woocommerce_orders->the_post();
-                $order_drop_down_array[get_the_ID()] = get_the_title();
+        if (!empty($orders)) {
+            foreach ($orders as $order) {
+                $order_drop_down_array[$order->get_id()] = $order->get_id();
             }
         }
-        ?>
+?>
         <form class="template-selector" method="get" action="<?= site_url(); ?>/wp-admin/admin-ajax.php">
             <div class="template-row">
                 <input type="hidden" name="action" value="woocommerce_preview_emails">
                 <span class="choose-email">Choose email template: </span>
                 <select name="file" id="email-select">
                     <?php
-                    foreach ($list as $item): ?>
+                    foreach ($list as $item) : ?>
                         <option value="<?= $item; ?>">
                             <?= str_replace('.php', '', $item); ?>
                         </option>
@@ -50,7 +45,7 @@ function woocommerce_preview_emails()
             <div class="order-row">
                 <span class="choose-order">Choose order number: </span>
                 <select id="order" name="order">
-                    <?php foreach ($order_drop_down_array as $order_id => $order_name): ?>
+                    <?php foreach ($order_drop_down_array as $order_id => $order_name) : ?>
                         <option value="<?= $order_id; ?>" <?php selected(((isset($_GET['order'])) ? $_GET['order'] : key($order_drop_down_array)), $order_id); ?>>
                             <?= $order_name; ?>
                         </option>
@@ -59,8 +54,8 @@ function woocommerce_preview_emails()
             </div>
             <input type="submit" value="View">
         </form>
-        <?php
-        global $order, $billing_email;
+<?php
+        global $order, $billing_email, $additional_content;
         reset($order_drop_down_array);
         $order_number = isset($_GET['order']) ? $_GET['order'] : key($order_drop_down_array);
         $order = new WC_Order($order_number);
@@ -69,7 +64,7 @@ function woocommerce_preview_emails()
         $user_id = !empty($order->get_customer_id()) ? (int)$order->get_customer_id() : (int)wp_get_current_user()->ID;
         $user_details = get_user_by('id', $user_id);
 
-        do_action('woocommerce_email_before_order_table', $order, false, false);
+        // do_action('woocommerce_email_before_order_table', $order, false, false);
 
         wc_get_template('emails/' . $_GET['file'], [
             'order' => $order,
@@ -80,7 +75,11 @@ function woocommerce_preview_emails()
             'user_login' => $user_details->user_login,
             'blogname' => get_bloginfo('name'),
             'customer_note' => $order->get_customer_note(),
-            'partial_refund' => ''
+            'partial_refund' => '',
+            'additional_content' => $additional_content,
+            'password_generated' => false,
+            'reset_key' => get_password_reset_key($user_details),
+            'user_id' => $user_id
         ]);
     }
     wp_die();

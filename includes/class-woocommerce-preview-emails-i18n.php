@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://www.strawberrysoup.co.uk
+ * @link       https://github.com/keefyhub
  * @since      1.0.0
  *
  * @package    Woocommerce_Email_Preview
@@ -22,7 +22,7 @@
  * @since      1.0.0
  * @package    Woocommerce_Email_Preview
  * @subpackage Woocommerce_Email_Preview/includes
- * @author     Keith Light <keith.light@strawberrysoup.co.uk>
+ * @author     Keith Light
  */
 class Woocommerce_Email_Preview_i18n
 {

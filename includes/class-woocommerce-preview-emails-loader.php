@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://www.strawberrysoup.co.uk
+ * @link       https://github.com/keefyhub
  * @since      1.0.0
  *
  * @package    Woocommerce_Email_Preview
@@ -19,7 +19,7 @@
  *
  * @package    Woocommerce_Email_Preview
  * @subpackage Woocommerce_Email_Preview/includes
- * @author     Keith Light <keith.light@strawberrysoup.co.uk>
+ * @author     Keith Light
  */
 class Woocommerce_Email_Preview_Loader
 {

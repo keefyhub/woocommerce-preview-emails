@@ -1,6 +1,6 @@
 {
 	"name": "Woocommerce preview emails",
-	"version": "1.0.16",
+	"version": "1.0.17",
 	"download_url": "https://github.com/keefyhub/woocommerce-preview-emails/archive/master.zip",
 
 	"homepage": "https://github.com/keefyhub/",
@@ -9,8 +9,8 @@
 	"last_updated": "2017-01-01 16:17:00",
 	"upgrade_notice": "Here's why you should upgrade...",
 
-	"author": "Keith Light | Strawberrysoup",
-	"author_homepage": "https://www.strawberrysoup.co.uk/",
+	"author": "Keith Light",
+	"author_homepage": "https://github.com/keefyhub/",
 
 	"sections": {
 		"description": "(Required) Plugin description. Basic HTML can be used in all sections.",
